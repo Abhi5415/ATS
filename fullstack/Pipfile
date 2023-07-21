@@ -8,6 +8,8 @@ openai = "*"
 pip = "*"
 install = "*"
 pypdf2 = "*"
+pyairtable = "*"
+streamlit = "*"
 
 [dev-packages]
 

@@ -54,25 +54,36 @@ def get_commits_for_repo(username, repo):
 
 
 def evaluate_applicant(username):
-    user_info = get_user_info(username)
-    repos = get_repos(username)
+    try:
+        print(username)
+        user_info = get_user_info(username)
+        repos = get_repos(username)
 
-    total_stars = 0
-    total_commits = 0
-    total_repos = len(repos)
-    languages = set()
+        total_stars = 0
+        total_commits = 0
+        total_repos = len(repos)
+        languages = set()
 
-    for repo in repos:
-        total_stars += repo["stargazers_count"]
-        languages.update(get_languages_for_repo(username, repo["name"]))
-        total_commits += len(get_commits_for_repo(username, repo["name"]))
+        for repo in repos:
+            total_stars += repo["stargazers_count"]
+            languages.update(get_languages_for_repo(username, repo["name"]))
+            total_commits += len(get_commits_for_repo(username, repo["name"]))
 
-    print(f"Username: {username}")
-    print(f"Public repos: {total_repos}")
-    print(f"Total stars: {total_stars}")
-    print(f"Total commits: {total_commits}")
-    print(f'Languages: {", ".join(languages)}')
+        print(f"Username: {username}")
+        print(f"Public repos: {total_repos}")
+        print(f"Total stars: {total_stars}")
+        print(f'Followers: {user_info["followers"]}')
+        print(f"Total commits: {total_commits}")
+        print(f'Languages: {", ".join(languages)}')
 
-
-# Use the function
-evaluate_applicant("octocat")
+        return False, {
+            "username": username,
+            "public_repos": total_repos,
+            "followers": user_info["followers"],
+            "total_stars": total_stars,
+            "total_commits": total_commits,
+            "languages": ", ".join(languages),
+        }
+    except Exception as e:
+        print(e)
+        return True, "Error fetching applicant data"

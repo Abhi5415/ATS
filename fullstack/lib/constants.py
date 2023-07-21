@@ -1,5 +1,5 @@
 JOB_DESCRIPTION = """
-# Fullstack Software Engineer
+# Fullstack Developer
 
 We are a rapidly growing product studio that builds magical software, helping companies go from 0 to 1 on digital products. You'll work with exceptional peers who’ve left top tech companies to escape the corporate red tape for startup agility.
 
@@ -44,3 +44,5 @@ Learn more about us at [beavrlabs.com](http://beavrlabs.com)
 - The chance to work on a variety of projects with different requirements and technologies.
 - A work culture that supports and encourages continual learning and growth.
 """
+
+ASSESSMENT_LINK = "https://coderbyte.com/sl-candidate?promo=beavrlabsinc-9a035:react-developer-tqr2k74rd4"
